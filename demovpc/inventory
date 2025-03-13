@@ -1,0 +1,10 @@
+[web]
+192.168.80.102
+192.168.80.101
+192.168.80.103
+[web:vars]
+luser=rajan
+ansible_ssh_common_args='-o StrictHostKeyChecking=no' 
+user_state=present 
+user_id=2600
+user_define=create
