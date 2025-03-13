@@ -1,0 +1,13 @@
+eksctl create cluster --name=eksdemo1 --region=ap-south-1 --zones=ap-south-1a,ap-south-1b --without-nodegroup
+
+eksctl get cluster
+
+eksctl utils associate-iam-oidc-provider --region ap-south-1 --cluster eksdemo1 --approve 
+
+eksctl delete cluster eksdemo1
+
+eksctl create cluster --name=eksdemo1 --region=ap-south-1  --without-nodegroup  --vpc-private-subnets=subnet-040a91dc36c04231e,subnet-0fcafe7861bacbcba
+
+eksctl create iamidentitymapping     --cluster ekdemo1     --region ap-south-1     --arn arn:aws:iam::854512018707:user/advika-aws     --group system:masters     --no-duplicate-arns     --username advika-aws
+
+eksctl create  iamidentitymapping --cluster eksdemo1 --region=ap-south-1 --arn arn:aws:iam::854512018707:role/commonloginrole --group system:masters --username commonloginrole
